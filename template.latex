@@ -1,0 +1,311 @@
+%%	NOTE FOR KILE USERS
+%%	In order to display correctly the images inside the documents, use the 
+%%	LaTex+DVItoPS+PStoPDF+ViewPDF option !
+%%      To convert xps files: http://xps2pdf.co.uk/
+%%      To crop pdf files: pdfcrop origin.pdf destination.pdf
+%%
+%% To create the PDF, click the PDFLaTeX button in Kile and it will generate the pdf file
+%% in the same directory where your latex source resides :)
+
+
+% Standard thesis setup, and common packages inclusion
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amssymb}
+\usepackage{verbatim} % You can remove this if you plan to use the fancyvrb one
+% Even/Odd pages perfectly matching, with a +1cm margin on the inner side which is useful
+% when the thesis will be binded
+\oddsidemargin = 1.5 cm
+\evensidemargin = 0.5 cm
+
+% Used to append "Appendix" string in the Table Of Contents
+\usepackage[titletoc]{appendix}
+
+% Needed to insert images
+\usepackage{float}
+
+% For beautiful font, must install texlive-fonts-extra in $buntu
+\usepackage{calligra}
+
+% For boxed Verbatim environment (note: CAPITAL "V"!!)
+\usepackage{fancyvrb}
+
+% Instructs to show a box around the images
+\floatstyle{boxed} 
+\restylefloat{figure}
+
+% Useful for the equations, and also introduces the handy \eqref command ;)
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+% For subnumcases math command
+\usepackage{cases}
+
+% Clickable table of contents, useful for navigation, plus some adjustments regarding
+% how links are displayed (comment the hypersetup command and see what's changed)
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% Set up the page header
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO,RE]{\scshape\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+% This enables the background image, the most common parameters are set here below.
+% To actually insert the image, insert the \BgThispage command
+\usepackage[some]{background}
+\SetBgScale{1}
+\SetBgContents{
+\includegraphics[scale=1]{images/unipd_logo.png}}
+\SetBgColor{gray}
+\SetBgAngle{0}
+\SetBgOpacity{0.07} % I'm Bond, James Bond :>
+
+%% Title and Author
+\title{Realization and Co-Simulation of a Three-Loop algorithm for
+a missile trajectory control}
+\author{Diego Casella}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+    % Insert the background here (front page)
+    \BgThispage
+    {\LARGE {\bfseries INSERT YOUR UNIVERSITY NAME HERE\\}}
+    \vspace{1cm}
+    \includegraphics[width=8cm,height=8cm]{images/unipd_logo.png}\\[1.5cm]
+
+    {\LARGE
+        Insert Your Degree Course Here\\
+    }
+    \vspace{1cm}
+    {\LARGE 
+        {\bfseries Insert you freaking long thesis title here and adjust it as you wish}
+    }
+    \vspace{1cm}
+
+    % you can replace the following with \today command, but I prefer this date format;
+    % most likely you can customize the date format, but I didn't investigate any further.
+    % Just remember to update the date BEFORE you print the document ;)
+    {\large Thursday, September the 27th, 2012\\
+    }
+
+    % vertically fills the page with spaces to put the following table + text at
+    % the bottom of the page
+    \vfill
+    \begin{table}[h]
+        {\large
+            \begin{tabular}{r l r r r l}
+                Chair, CS Dept:&His Name& & &Student:&Your Name\\
+                Advisor:&His Name& & & &\\
+                Co-Advisor:&His Name& & & &
+            \end{tabular}
+        }
+    \end{table}
+    Academic Year 2011/2012
+    \end{center}
+\end{titlepage}
+
+% Leaves a blank page after (should I say behind?) the front page
+\cleardoublepage
+
+% Inserts the Table Of Contents
+\tableofcontents
+
+% Starts a new page
+\newpage
+\section{Introduction}
+Just a quick template with the setup I used in my thesis, plus some packages and tweaks I've found
+extremely useful and nice to share. It contains almost everything needed to start with \LaTeX,
+so even unexperienced users will have something to start with.
+\newline
+I hope it will be useful for you too.
+
+\subsection{Some Text}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean adipiscing pharetra suscipit.
+Integer pellentesque iaculis justo, id convallis felis facilisis eu. Phasellus in massa turpis,
+vitae venenatis turpis. Donec in libero vitae magna vestibulum vehicula eu vehicula massa. Morbi
+congue aliquam metus, eu tristique nibh viverra porttitor. Aliquam dignissim pretium massa, eu
+lobortis sem cursus ac. Donec tempus porttitor malesuada.\\
+Donec pulvinar interdum libero, eu auctor felis adipiscing vitae. Pellentesque quis massa eu enim
+imperdiet euismod at id magna. Mauris ullamcorper venenatis laoreet. Vestibulum eu massa a lorem
+varius scelerisque. Vivamus nec nunc sapien, non dapibus nisl. Fusce at enim id odio commodo sodales.
+Integer nibh dui, tempus id mattis vitae, gravida vitae lorem. Suspendisse dolor magna, consequat id
+ornare nec, vulputate sed risus. Suspendisse pharetra quam felis, vel gravida eros. Curabitur euismod
+enim vitae tellus tincidunt pharetra. Sed quis placerat nunc. Nullam ultricies eleifend leo a
+convallis. Suspendisse dictum tincidunt metus, ut hendrerit ipsum feugiat a. In purus ipsum,
+porttitor sit amet vehicula a, placerat sed dolor\footnote{Nam ac lacinia eros. Ut vestibulum
+ultricies augue facilisis consectetur.}.
+
+\subsubsection{Other Text}
+Nulla suscipit ante vitae dui fermentum sed blandit ipsum suscipit. Ut porttitor augue vitae ante
+tempus pharetra. Vestibulum porta lacus vel ipsum feugiat eleifend. Duis sodales risus in libero
+tristique volutpat. Quisque libero metus, tristique vitae malesuada a, euismod eu risus. Quisque
+feugiat consectetur diam in mattis. Nulla ultrices ultricies urna eu placerat. Maecenas sagittis
+volutpat enim sit amet malesuada. Donec dapibus, sem ac pulvinar dignissim, neque augue feugiat leo,
+non auctor mi felis lobortis nulla.\footnote{Donec pulvinar augue eget dui imperdiet vestibulum.
+Donec tincidunt laoreet pellentesque.}.
+
+\subsection{Calligraphic Text}
+\textcalligra{This is an awesome calligraphic text with the \emph{Calligra} font face. Don't
+misuse it, anyway!}
+
+\subsection{Special Text}
+Say you want to insert some sourcecode, you can use the \texttt{verbatim} class or instead, the more
+fancy (imho) \texttt{Verbatim} one with a frame around.
+
+\begin{Verbatim}[frame=single]
+                  // loop until the conversion is finished
+                  while (ADCON0bits.GO_DONE != 0)
+000114   a2c2   BTFSS   0xc2,0x1,0x0
+000116   d006   BRA     0x124
+000122   d7f8   BRA     0x114
+                     acLoopCounter++;
+000118   0e1e   MOVLW   0x1e
+00011a   2adb   INCF    0xdb,0x1,0x0
+00011c   0e1f   MOVLW   0x1f
+00011e   e301   BNC     0x122
+000120   2adb   INCF    0xdb,0x1,0x0
+000124   50c4   MOVF    0xc4,0x0,0x0
+\end{Verbatim}
+
+\newpage
+\section{Figures}
+You can include \emph{*.png} images, like the one in Figure \ref{fig:logo_png}, and the cool stuff
+is that the number next to \emph{Figure} word is clickable and will bring you here regardless where
+you put the \texttt{\textbackslash ref\{fig:logo\_png\}}.
+\\It's a reference command, afterall ;)
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{images/unipd_logo.png}
+    \caption{University of Padua logo, png format}
+    \label{fig:logo_png}
+\end{figure}
+\subsection{Moarrr Figures}
+Say you want to insert 2 or more figures, each one with a specific caption, and group them with a
+global caption, this is how you could do that
+
+\begin{figure}[!ht]
+    \begin{center}
+        \subfigure[png]{
+        \includegraphics[scale=0.1]{images/unipd_logo.png}
+    }
+        \subfigure[pdf]{
+        \includegraphics[scale=0.1]{images/unipd_logo.pdf}
+    }
+        \subfigure[png again]{
+        \includegraphics[scale=0.1]{images/unipd_logo.png}
+    }
+    \end{center}
+    \caption{Unipd logos in different file formats}
+    \label{fig:loop}
+\end{figure}
+Of course, you can insert \emph{*.pdf}, \emph{*.png}, \emph{*.jpg} and other formats, but I
+\textbf{strongly} suggest you to use \emph{*.pdf} format and, if you can't, fall back to
+the\emph{*.png} one, because they got rendered wayyy better.
+
+If you play a little more with figure sizes, you can achieve this nice layout
+\begin{figure}[H]
+     \begin{center}
+  \subfigure[png]{
+        \includegraphics[scale=0.15]{images/unipd_logo.png}
+  }
+  \subfigure[pdf]{
+        \includegraphics[scale=0.15]{images/unipd_logo.pdf}
+  }
+  \subfigure[png again]{
+        \includegraphics[scale=0.15]{images/unipd_logo.png}
+  }
+  \subfigure[pdf again]{
+        \includegraphics[scale=0.15]{images/unipd_logo.pdf}
+  }
+  \end{center}
+  \caption{Unipd logos in different file formats}
+  \label{fig:loop}
+\end{figure}
+Which is useful to group, for example, related graphs all together.
+
+\newpage
+\section{Equations}
+Assuming you already know how to write a basic math formula, here you are an example of the
+\texttt{boxed} environment
+
+\begin{equation} \label{eq:boxed_eq}
+ \boxed{
+    \frac{\Delta n_{B}}{\Delta\delta} = k_{1} \cdotp \frac{1-\dfrac{s^2}{\omega_{Z}^{2}}}
+    {\dfrac{s^{2}}{\omega_{AF}^{2}} + \dfrac{2 \cdotp \xi_{AF}}{\omega_{AF}} \cdotp s + 1}
+ }
+\end{equation}
+An example of the \texttt{cases} environment
+\begin{equation}
+    \begin{cases} \label{eq:cases_eq}
+        \omega_{n} = \omega_{AF} \sqrt{1- K_{R} \cdotp k_{3}} \\
+        \xi = \dfrac{\omega_{n}}{2} \cdotp
+        \dfrac{
+        \dfrac{2\cdotp\xi_{AF}}{\omega_{AF}} - K_{R}\cdotp k_{3} \cdotp T_{\alpha}}
+        {1- K_{R} \cdotp k_{3}}
+    \end{cases}
+\end{equation}
+But this will not number each equation written, which could be what you need, or not.
+If you need to number every equation inside the \texttt{cases} environment, you need
+to use the \texttt{subnumcases}, obtaining
+
+\begin{subnumcases} {}
+    \omega_{n} = \omega_{AF} \sqrt{1- K_{R} \cdotp k_{3}} \\
+    \xi = \dfrac{\omega_{n}}{2} \cdotp
+    \dfrac{
+    \dfrac{2\cdotp\xi_{AF}}{\omega_{AF}} - K_{R}\cdotp k_{3} \cdotp T_{\alpha}}
+    {1- K_{R} \cdotp k_{3}}
+\end{subnumcases}
+
+\newpage
+\section{Refer to something}
+In your thesis you often need to refer to a given equation, image or book citation. Labels are
+specified by the \texttt{\textbackslash label\{a\_label\}} command, placed inside a \texttt{equation}
+or \texttt{figure} environment (or in usual text) and recalled by the
+\texttt{\textbackslash ref\{a\_label\}} command.
+\newline
+However, for the equations, there is the handy \texttt{\textbackslash eqref\{an\_equation\}} command
+that does almost the same of the \texttt{ref} command, but also encloses the equation number with
+parenthesis. They are still clickable, try for example to go to Equation \eqref{eq:boxed_eq}.
+If we want to refer to a particular book, essay, paper or whatever else, you need to define
+it inside \emph{your\_bibliography.bib} file, and include it at the end of the \LaTeX source
+file. Then, whenever you need to cite the book/essay/paper, just use the
+\texttt{\textbackslash cite\{bib\_label\}} and it will automatically appear next to the word you put
+the command, and also append the paper details in the Bibliography section.
+Examples:
+\begin{itemize}
+ \item PIC Analog-To-Digital Converter\cite{picadc}
+ \item Enhanced PWM Mode\cite{picpwm}
+ \item AWGN noise defined in\cite{fdc}
+\end{itemize}
+
+\newpage
+\begin{appendices}
+\section{More Explanations Here}
+\section{And Here}
+\subsection{And Here Too}
+\end{appendices}
+
+\newpage
+% Insert bibliography here
+% NOTE: due to the multiple processing nature of latex, you need to recompile the sources thrice
+% in order to process your_bibliography.bib file, include it, and output in the pdf one
+\bibliographystyle{amsplain}
+\bibliography{your_bibliography}
+\end{document}
+
